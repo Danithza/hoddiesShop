@@ -11,6 +11,12 @@ export default class extends BaseSchema {
     table.decimal('price', 10, 2).notNullable()
     table.string('image_url').nullable()
     table.integer('stock').unsigned().defaultTo(0)
+    table
+        .integer('categoria_id')
+        .unsigned()
+        .references('id')
+        .inTable('categorias')
+        .onDelete('CASCADE')
     table.timestamp('created_at')
     table.timestamp('updated_at')
     })
