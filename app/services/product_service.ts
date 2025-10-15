@@ -28,4 +28,13 @@ export default class ProductService {
     await product.delete()
     return { message: 'Producto eliminado exitosamente' }
   }
+
+  public async getByCategoriaId(id: number) {
+  const productos = await Product.query()
+    .where('categoria_id', id)
+    .preload('categoria')
+
+  return productos
+}
+
 }

@@ -23,4 +23,9 @@ export default class ProductsController {
   public async destroy({ params }: HttpContext) {
     return this.service.delete(params.id)
   }
+
+  public async getByCategoriaId({ params }: HttpContext) {
+  return this.service.getByCategoriaId(params.id)
+}
+
 }
