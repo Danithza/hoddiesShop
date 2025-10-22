@@ -5,6 +5,7 @@ import ProductsController from '#controllers/products_controller'
 import OrdersController from '#controllers/orders_controller'
 import OrderItemsController from '#controllers/order_items_controller'
 import CategoriasController from '#controllers/categorias_controller'
+import AuthController from '#controllers/auth_controller'
 
 // PRODUCTS CRUD
 router.get('/products', [ProductsController, 'index'])
@@ -34,3 +35,12 @@ router.post('/categorias', [CategoriasController, 'store'])
 router.get('/categorias/:id', [CategoriasController, 'show'])
 router.put('/categorias/:id', [CategoriasController, 'update'])
 router.delete('/categorias/:id', [CategoriasController, 'destroy'])
+
+// AUTH
+router.get('/', async () => {
+  return { message: 'Servidor funcionando 🚀' }
+})
+
+router.post('/register', [AuthController, 'register'])
+router.post('/login', [AuthController, 'login'])
+router.post('/logout', [AuthController, 'logout'])
